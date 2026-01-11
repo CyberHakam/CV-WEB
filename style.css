@@ -1,0 +1,333 @@
+/* =====================================================
+   COLOR SYSTEM
+===================================================== */
+:root {
+    --bg: #ffffff;
+    --text: #0f172a;
+    --muted: #475569;
+    --card: #f1f5f9;
+    --accent: #2563eb;
+  }
+  
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #020617;
+      --text: #f8fafc;
+      --muted: #cbd5f5;
+      --card: #0f172a;
+      --accent: #60a5fa;
+    }
+  }
+  
+  /* RESET */
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  /* GLOBAL */
+  body {
+    font-family: Inter, system-ui, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.6;
+    min-height: 100vh;
+  }
+  
+  /* NAVBAR */
+  .navbar {
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    background: var(--bg);
+    display: flex;
+    justify-content: space-between;
+    padding: 18px 40px;
+  }
+  
+  .logo {
+    font-size: 26px;
+    font-weight: 900;
+    letter-spacing: .5px;
+  }
+  
+  .nav a {
+    margin-left: 24px;
+    font-weight: 600;
+    text-decoration: none;
+    color: var(--text);
+  }
+  
+  /* SECTION */
+  .section {
+    max-width: 1100px;
+    margin: auto;
+    padding: 90px 40px;
+  }
+  
+  .section h2 {
+    font-size: 30px;
+    margin-bottom: 32px;
+  }
+  
+  /* HERO */
+  #hero h1 {
+    font-size: 44px;
+    font-weight: 900;
+  }
+  
+  #hero p {
+    max-width: 560px;
+    margin-top: 14px;
+    color: var(--muted);
+  }
+  
+  /* BUTTON */
+  .btn {
+    display: inline-block;
+    padding: 12px 26px;
+    border-radius: 999px;
+    margin-right: 12px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: transform .25s ease, box-shadow .25s ease;
+  }
+  
+  .btn.primary {
+    background: var(--accent);
+    color: #fff;
+  }
+  
+  .btn.outline {
+    border: 2px solid var(--accent);
+    color: var(--accent);
+  }
+  
+  .btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 12px 28px rgba(0,0,0,.18);
+  }
+
+  /* ===============================
+   CLICK FEEDBACK (PRESS FEEL)
+=============================== */
+.btn,
+.detail-btn,
+.action-bar a {
+  transition:
+    transform .18s cubic-bezier(.16,1,.3,1),
+    box-shadow .18s cubic-bezier(.16,1,.3,1);
+}
+
+.btn:active,
+.detail-btn:active,
+.action-bar a:active {
+  transform: scale(.96) translateY(1px);
+  box-shadow: 0 6px 16px rgba(0,0,0,.18);
+}
+  
+  /* EXPERIENCE */
+  .experience-card {
+    background: var(--card);
+    padding: 28px;
+    border-radius: 18px;
+    margin-bottom: 24px;
+  }
+  
+  .experience-card h3 {
+    font-size: 19px;
+    font-weight: 800;
+  }
+  
+  .company {
+    font-size: 14px;
+    color: var(--muted);
+  }
+  
+  .experience-card ul {
+    margin-top: 14px;
+    padding-left: 18px;
+  }
+  
+  .detail-btn {
+    margin-top: 14px;
+    background: none;
+    border: none;
+    color: var(--accent);
+    font-weight: 700;
+    cursor: pointer;
+  }
+  
+ /* ================= SKILLS ================= */
+.skill-chart {
+    display: flex;
+    gap: 36px;
+    flex-wrap: wrap;
+    justify-content: center; /* center semua skill-item horizontal */
+  }
+  
+  .skill-item {
+    position: relative;
+    width: 160px; /* pastikan cukup lebar untuk teks */
+    display: flex;
+    flex-direction: column; /* susun chart -> angka -> teks */
+    align-items: center;    /* center semua anaknya horizontal */
+    text-align: center;     /* center teks bawah */
+  }
+  
+  .skill-item svg {
+    width: 120px;
+    height: 120px;
+    display: block;
+    margin: 0 auto; /* center lingkaran */
+  }
+  
+  .skill-item circle:nth-child(1) {
+    stroke: #e5e7eb; /* background circle */
+    stroke-width: 10;
+    fill: none;
+  }
+  
+  .skill-item circle:nth-child(2) {
+    stroke: var(--accent); /* progress */
+    stroke-width: 10;
+    fill: none;
+    stroke-dasharray: 327;
+    stroke-dashoffset: 327;
+    transition: stroke-dashoffset 1s ease-out;
+  }
+  
+  .skill-value {
+    position: absolute;
+    top: 50%;   /* center vertikal di tengah lingkaran */
+    left: 50%;  /* center horizontal */
+    transform: translate(-50%, -50%);
+    font-size: 18px;
+    font-weight: 800;
+    color: var(--text);
+  }
+  
+  .skill-item span {
+    margin-top: 12px;  /* jarak antara lingkaran dan teks */
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 1.4;
+    word-wrap: break-word;
+    text-align: center;
+    width: 100%; /* pastikan teks tetap center dengan chart */
+  }
+  
+  /* RESPONSIVE */
+  @media (max-width: 480px) {
+    .skill-item {
+      width: 120px;
+    }
+    .skill-item svg {
+      width: 100px;
+      height: 100px;
+    }
+  }  
+  
+  /* CONTACT */
+  #contact {
+    position: relative;
+    z-index: 5;
+  }
+  
+  .contact-links a {
+    margin-right: 20px;
+    font-weight: 700;
+    color: var(--accent);
+    text-decoration: none;
+  }
+  
+  /* FOOTER */
+  footer {
+    margin-top: 120px;
+    padding: 32px 0;
+    text-align: center;
+    font-size: 13px;
+    color: var(--muted);
+  }
+  
+  /* ACTION BAR */
+  .action-bar {
+    position: fixed;
+    right: 20px;
+    bottom: 20px;
+    display: flex;
+    gap: 12px;
+    z-index: 40;
+  }
+  
+  .action-bar a {
+    background: var(--accent);
+    color: #fff;
+    padding: 10px 16px;
+    border-radius: 999px;
+    font-weight: 700;
+    text-decoration: none;
+  }
+  
+  /* MODAL */
+  .modal {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,.55);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    pointer-events: none;
+    z-index: 1000;
+  }
+  
+  .modal.active {
+    opacity: 1;
+    pointer-events: auto;
+  }
+  
+  .modal-content {
+    background: var(--bg);
+    color: var(--text);
+    width: min(90%, 520px);
+    padding: 32px;
+    border-radius: 20px;
+    box-shadow: 0 40px 120px rgba(0,0,0,.35);
+  }
+  
+  /* SCROLL REVEAL — SAFE */
+  .reveal {
+    opacity: 1;
+    transform: none;
+  }
+  
+  .reveal.active {
+    animation: fadeUp 1.1s cubic-bezier(.16, 1, .3, 1) forwards;
+  }  
+  
+  @keyframes fadeUp {
+    from {
+      opacity: 0;
+      transform: translateY(28px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }  
+  
+  /* RESPONSIVE */
+  @media (max-width: 768px) {
+    #hero h1 { font-size: 34px; }
+    .navbar, .section { padding-left: 20px; padding-right: 20px; }
+  }
+
+  @media (max-width: 768px) {
+  .action-bar {
+    bottom: 80px;
+  }
+}
+
+  
