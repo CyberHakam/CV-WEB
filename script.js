@@ -181,9 +181,9 @@ document.addEventListener('DOMContentLoaded', () => {
   }
   
   /* =====================================================
-     CONTACT FORM
-  ===================================================== */
-  function setupContactForm() {
+   CONTACT FORM - FORMSPREE
+===================================================== */
+function setupContactForm() {
     const form = document.getElementById('contactForm');
     const formMessage = document.getElementById('formMessage');
   
@@ -192,40 +192,61 @@ document.addEventListener('DOMContentLoaded', () => {
         e.preventDefault();
   
         // Get form data
-        const formData = new FormData(form);
-        const name = form.querySelector('input[type="text"]').value;
-        const email = form.querySelector('input[type="email"]').value;
-        const message = form.querySelector('textarea').value;
+        const name = form.querySelector('input[name="name"]').value;
+        const email = form.querySelector('input[name="email"]').value;
+        const subject = form.querySelector('input[name="subject"]').value;
+        const message = form.querySelector('textarea[name="message"]').value;
   
-        // Simple validation
+        // Validasi
         if (!name || !email || !message) {
-          showMessage('Semua field harus diisi!', 'error', formMessage);
+          showMessage('❌ Semua field harus diisi!', 'error', formMessage);
           return;
         }
   
         // Email validation
         const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
         if (!emailRegex.test(email)) {
-          showMessage('Email tidak valid!', 'error', formMessage);
+          showMessage('❌ Email tidak valid!', 'error', formMessage);
           return;
         }
   
-        // Simulate form submission
         try {
-          // In real application, send to backend
-          // For now, just show success message
-          form.reset();
-          showMessage('Pesan berhasil dikirim! Terima kasih telah menghubungi saya.', 'success', formMessage);
-  
-          // Show success modal
-          setTimeout(() => {
-            const successModal = document.getElementById('successModal');
-            if (successModal) {
-              successModal.classList.add('active');
+          // Kirim ke Formspree
+          const formData = new FormData(form);
+          
+          const response = await fetch(form.action, {
+            method: 'POST',
+            body: formData,
+            headers: {
+              'Accept': 'application/json'
             }
-          }, 500);
+          });
+  
+          if (response.ok) {
+            // Reset form
+            form.reset();
+            
+            // Tampilkan pesan sukses
+            showMessage('✅ Pesan berhasil dikirim! Terima kasih telah menghubungi saya.', 'success', formMessage);
+  
+            // Tampilkan success modal
+            setTimeout(() => {
+              const successModal = document.getElementById('successModal');
+              if (successModal) {
+                successModal.classList.add('active');
+              }
+            }, 800);
+  
+            // Hapus pesan setelah 5 detik
+            setTimeout(() => {
+              formMessage.className = 'form-message';
+            }, 5000);
+          } else {
+            showMessage('❌ Terjadi kesalahan saat mengirim pesan.', 'error', formMessage);
+          }
         } catch (error) {
-          showMessage('Terjadi kesalahan. Silakan coba lagi.', 'error', formMessage);
+          console.error('Error:', error);
+          showMessage('❌ Koneksi gagal. Silakan coba lagi.', 'error', formMessage);
         }
       });
     }
@@ -234,11 +255,7 @@ document.addEventListener('DOMContentLoaded', () => {
   function showMessage(text, type, element) {
     element.textContent = text;
     element.className = `form-message ${type}`;
-    
-    setTimeout(() => {
-      element.className = 'form-message';
-    }, 5000);
-  }
+  }  
   
   /* =====================================================
      SCROLL TOP BUTTON

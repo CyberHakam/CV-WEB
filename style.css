@@ -323,6 +323,7 @@ body {
   height: 300px;
   background: linear-gradient(135deg, var(--accent), #1e40af);
   border-radius: 50%;
+  overflow: hidden;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -330,6 +331,12 @@ body {
   color: #fff;
   box-shadow: 0 20px 60px rgba(37, 99, 235, 0.3);
   animation: float 3s ease-in-out infinite;
+}
+
+.avatar img {
+    width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
 @keyframes float {
@@ -1236,7 +1243,7 @@ body {
 .scroll-top {
   position: fixed;
   right: 20px;
-  bottom: 100px;
+  bottom: 144px;
   width: 50px;
   height: 50px;
   background: var(--accent);
