@@ -5,151 +5,764 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Indra Wijaya | Admin & Data Specialist</title>
   <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 
 <body>
 
+<!-- ================= LOADING SCREEN ================= -->
+<div class="loading-screen" id="loadingScreen">
+  <div class="loader"></div>
+  <p>Loading...</p>
+</div>
+
 <!-- ================= ACTION BAR ================= -->
 <div class="action-bar">
-  <a href="#contact">Contact</a>
-  <a href="CV_Indra_Wijaya.pdf" download>Download CV</a>
+  <a href="#contact" class="action-btn" title="Hubungi Saya">
+    <i class="fas fa-envelope"></i>
+    <span>Contact</span>
+  </a>
+  <a href="CV_Indra_Wijaya.pdf" download class="action-btn" title="Download CV">
+    <i class="fas fa-download"></i>
+    <span>CV</span>
+  </a>
 </div>
 
 <!-- ================= NAVBAR ================= -->
 <header class="navbar">
-  <div class="logo">Indra Wijaya</div>
-  <nav class="nav">
+  <div class="logo">
+    <i class="fas fa-user-tie"></i>
+    Indra Wijaya
+  </div>
+  <button class="menu-toggle" id="menuToggle">
+    <span></span>
+    <span></span>
+    <span></span>
+  </button>
+  <nav class="nav" id="navMenu">
+    <a href="#home">Home</a>
+    <a href="#about">About</a>
     <a href="#experience">Experience</a>
+    <a href="#education">Education</a>
     <a href="#skills">Skills</a>
+    <a href="#tools">Tools</a>
     <a href="#contact">Contact</a>
   </nav>
 </header>
 
-<!-- ================= HERO ================= -->
-<section id="hero" class="section reveal">
-  <h1>Admin Support & Data Specialist</h1>
-  <p>Profesional administrasi & data dengan Excel lanjutan dan reporting.</p>
+<!-- ================= HERO / HOME ================= -->
+<section id="home" class="section hero reveal">
+  <div class="hero-content">
+    <div class="hero-text">
+      <h1>Admin Support & Data Specialist</h1>
+      <p>Profesional administrasi & data dengan Excel lanjutan, reporting akurat, dan koordinasi efisien.</p>
+      <div class="hero-stats">
+        <div class="stat">
+          <h3>2+</h3>
+          <p>Tahun Pengalaman</p>
+        </div>
+        <div class="stat">
+          <h3>99%</h3>
+          <p>Akurasi Data</p>
+        </div>
+        <div class="stat">
+          <h3>50+</h3>
+          <p>Laporan/Tahun</p>
+        </div>
+      </div>
+      <div class="hero-actions">
+        <a href="#contact" class="btn primary">
+          <i class="fas fa-phone"></i> Hubungi Saya
+        </a>
+        <a href="#experience" class="btn outline">
+          <i class="fas fa-briefcase"></i> Lihat Pengalaman
+        </a>
+      </div>
+    </div>
+    <div class="hero-image">
+      <div class="avatar">
+        <i class="fas fa-user"></i>
+      </div>
+    </div>
+  </div>
+</section>
 
-  <div class="hero-actions">
-    <a href="#contact" class="btn primary">Hubungi Saya</a>
-    <a href="#experience" class="btn outline">Lihat Pengalaman</a>
-    <a href="CV_Indra_Wijaya.pdf" class="btn outline" download>Download CV</a>
+<!-- ================= ABOUT ================= -->
+<section id="about" class="section reveal">
+  <h2><i class="fas fa-user-circle"></i> Tentang Saya</h2>
+  <div class="about-content">
+    <div class="about-text">
+      <p>Saya adalah profesional administrasi dengan dedikasi penuh terhadap <strong>keakuratan data, efisiensi operasional, dan ketepatan waktu</strong>.</p>
+      
+      <p style="margin-top: 16px;">Spesialisasi saya meliputi:</p>
+      <ul class="about-list">
+        <li><i class="fas fa-check-circle"></i> Pengelolaan database & sistem operasional</li>
+        <li><i class="fas fa-check-circle"></i> Pembuatan laporan Excel dengan formula kompleks (VLOOKUP, SUMIF, Pivot Table)</li>
+        <li><i class="fas fa-check-circle"></i> Koordinasi lintas departemen & stakeholder</li>
+        <li><i class="fas fa-check-circle"></i> Administrasi sales, klaim, & support</li>
+        <li><i class="fas fa-check-circle"></i> Data analysis & business reporting</li>
+      </ul>
+
+      <p style="margin-top: 16px;">Saya percaya bahwa detail kecil membuat perbedaan besar. Setiap laporan, setiap data, dan setiap komunikasi dihandle dengan profesionalisme tinggi.</p>
+    </div>
+    <div class="about-image">
+      <div class="about-card">
+        <h3>💼 Profil Profesional</h3>
+        <div class="about-info">
+          <p><strong>Status:</strong> Aktif Mencari Pekerjaan</p>
+          <p><strong>Tipe Pekerjaan:</strong> Full-time / Part-time</p>
+          <p><strong>Lokasi:</strong> Indonesia (Open Remote)</p>
+          <p><strong>Pengalaman:</strong> 2+ Tahun</p>
+          <p><strong>Industri:</strong> Manufacturing, Trading, Services</p>
+        </div>
+      </div>
+    </div>
   </div>
 </section>
 
 <!-- ================= EXPERIENCE ================= -->
 <section id="experience" class="section reveal">
-  <h2>Pengalaman Profesional</h2>
+  <h2><i class="fas fa-briefcase"></i> Pengalaman Profesional</h2>
 
-  <article class="experience-card">
-    <h3>Admin Sales (Intern)</h3>
-    <span class="company">PT Indo Kimia Jaya · Jul 2025 – Okt 2025</span>
-    <ul>
-      <li>Administrasi sales & klaim operasional</li>
-      <li>Koordinasi lintas divisi</li>
-      <li>Pengolahan data Excel</li>
-    </ul>
-    <button class="detail-btn" data-modal="modal-indo">Lihat Detail</button>
-  </article>
+  <div class="experience-timeline">
+    <article class="experience-card">
+      <div class="experience-header">
+        <h3>Admin Sales (Intern)</h3>
+        <span class="badge">Current</span>
+      </div>
+      <span class="company">
+        <i class="fas fa-building"></i> PT Indo Kimia Jaya
+      </span>
+      <span class="period">
+        <i class="fas fa-calendar"></i> Jul 2025 – Oct 2025 (4 bulan)
+      </span>
+      <ul class="experience-list">
+        <li>Mengelola administrasi sales dan klaim operasional harian</li>
+        <li>Koordinasi lintas divisi (Sales, Finance, Operations)</li>
+        <li>Pengolahan data Excel (data entry, validation, reporting)</li>
+        <li>Support penyiapan dokumen sales & klaim</li>
+      </ul>
+      <button class="detail-btn" data-modal="modal-indo">
+        <i class="fas fa-arrow-right"></i> Lihat Detail
+      </button>
+    </article>
 
-  <article class="experience-card">
-    <h3>Admin Support</h3>
-    <span class="company">PT Sastra Indah Megahmas</span>
-    <ul>
-      <li>Laporan operasional</li>
-      <li>Excel reporting</li>
-    </ul>
-    <button class="detail-btn" data-modal="modal-sastra">Lihat Detail</button>
-  </article>
+    <article class="experience-card">
+      <div class="experience-header">
+        <h3>Admin Support</h3>
+      </div>
+      <span class="company">
+        <i class="fas fa-building"></i> PT Sastra Indah Megahmas
+      </span>
+      <span class="period">
+        <i class="fas fa-calendar"></i> Mar 2024 – Mar 2025 (1 tahun)
+      </span>
+      <ul class="experience-list">
+        <li>Mengelola administrasi operasional harian perusahaan</li>
+        <li>Menyusun laporan Excel dengan formula lanjutan</li>
+        <li>Menyediakan data pendukung untuk keputusan manajemen</li>
+        <li>Koordinasi internal antar divisi</li>
+      </ul>
+      <button class="detail-btn" data-modal="modal-sastra">
+        <i class="fas fa-arrow-right"></i> Lihat Detail
+      </button>
+    </article>
 
-  <article class="experience-card">
-    <h3>MIS</h3>
-    <span class="company">PT Trimindo Jaya Mandiri</span>
-    <ul>
-      <li>Database internal</li>
-      <li>Laporan manajemen</li>
-    </ul>
-    <button class="detail-btn" data-modal="modal-trimindo">Lihat Detail</button>
-  </article>
+    <article class="experience-card">
+      <div class="experience-header">
+        <h3>MIS (Management Information System)</h3>
+      </div>
+      <span class="company">
+        <i class="fas fa-building"></i> PT Trimindo Jaya Mandiri
+      </span>
+      <span class="period">
+        <i class="fas fa-calendar"></i> Jan 2024 – Feb 2024 (2 bulan)
+      </span>
+      <ul class="experience-list">
+        <li>Pengelolaan database internal perusahaan</li>
+        <li>Pembuatan laporan manajemen berkala</li>
+        <li>Maintenance data sistem & dokumentasi</li>
+      </ul>
+      <button class="detail-btn" data-modal="modal-trimindo">
+        <i class="fas fa-arrow-right"></i> Lihat Detail
+      </button>
+    </article>
+  </div>
+</section>
+
+<!-- ================= EDUCATION ================= -->
+<section id="education" class="section reveal">
+  <h2><i class="fas fa-graduation-cap"></i> Pendidikan</h2>
+
+  <div class="education-grid">
+    <article class="education-card">
+      <div class="education-icon">
+        <i class="fas fa-university"></i>
+      </div>
+      <h3>S1 Akuntansi</h3>
+      <p class="institution">Universitas [Nama Universitas]</p>
+      <p class="year">2020 - 2024</p>
+      <p class="gpa">GPA: 3.45 / 4.00</p>
+      <div class="education-highlights">
+        <span class="highlight">Cum Laude</span>
+      </div>
+    </article>
+
+    <article class="education-card">
+      <div class="education-icon">
+        <i class="fas fa-certificate"></i>
+      </div>
+      <h3>Excel Advanced</h3>
+      <p class="institution">Kursus Online / Pelatihan</p>
+      <p class="year">2024</p>
+      <div class="education-highlights">
+        <span class="highlight">VLOOKUP</span>
+        <span class="highlight">Pivot Table</span>
+        <span class="highlight">Dashboard</span>
+      </div>
+    </article>
+
+    <article class="education-card">
+      <div class="education-icon">
+        <i class="fas fa-certificate"></i>
+      </div>
+      <h3>Data Analysis Basics</h3>
+      <p class="institution">Workshop / Training</p>
+      <p class="year">2024</p>
+      <div class="education-highlights">
+        <span class="highlight">Data Management</span>
+        <span class="highlight">Visualization</span>
+      </div>
+    </article>
+  </div>
 </section>
 
 <!-- ================= SKILLS ================= -->
 <section id="skills" class="section reveal">
-  <h2>Skill Proof</h2>
+  <h2><i class="fas fa-star"></i> Skill Proof</h2>
 
-  <div class="skill-chart">
-    <div class="skill-item" data-skill="90">
-        <svg>
-            <circle cx="60" cy="60" r="52"></circle>
-            <circle cx="60" cy="60" r="52"></circle>
+  <div class="skills-container">
+    <div class="skill-chart">
+      <div class="skill-item" data-skill="90">
+        <svg viewBox="0 0 120 120">
+          <circle cx="60" cy="60" r="52" class="skill-bg"></circle>
+          <circle cx="60" cy="60" r="52" class="skill-progress"></circle>
         </svg>
         <div class="skill-value">0%</div>
-      <span>Excel & Spreadsheet</span>
-    </div>
+        <span>Excel & Spreadsheet</span>
+        <small>VLOOKUP, Pivot, Dashboard</small>
+      </div>
 
-    <div class="skill-item" data-skill="85">
-        <svg>
-            <circle cx="60" cy="60" r="52"></circle>
-            <circle cx="60" cy="60" r="52"></circle>
+      <div class="skill-item" data-skill="85">
+        <svg viewBox="0 0 120 120">
+          <circle cx="60" cy="60" r="52" class="skill-bg"></circle>
+          <circle cx="60" cy="60" r="52" class="skill-progress"></circle>
         </svg>
         <div class="skill-value">0%</div>
-      <span>Reporting</span>
-    </div>
-    
-    <div class="skill-item" data-skill="85">
-        <svg>
-            <circle cx="60" cy="60" r="52"></circle>
-            <circle cx="60" cy="60" r="52"></circle>
+        <span>Data Reporting</span>
+        <small>Analysis, Visualization</small>
+      </div>
+
+      <div class="skill-item" data-skill="90">
+        <svg viewBox="0 0 120 120">
+          <circle cx="60" cy="60" r="52" class="skill-bg"></circle>
+          <circle cx="60" cy="60" r="52" class="skill-progress"></circle>
         </svg>
         <div class="skill-value">0%</div>
-      <span>Administrasi</span>
+        <span>Administrasi</span>
+        <small>Operasional, Dokumentasi</small>
+      </div>
+
+      <div class="skill-item" data-skill="80">
+        <svg viewBox="0 0 120 120">
+          <circle cx="60" cy="60" r="52" class="skill-bg"></circle>
+          <circle cx="60" cy="60" r="52" class="skill-progress"></circle>
+        </svg>
+        <div class="skill-value">0%</div>
+        <span>Komunikasi</span>
+        <small>Tim, Koordinasi, Presentasi</small>
+      </div>
+
+      <div class="skill-item" data-skill="75">
+        <svg viewBox="0 0 120 120">
+          <circle cx="60" cy="60" r="52" class="skill-bg"></circle>
+          <circle cx="60" cy="60" r="52" class="skill-progress"></circle>
+        </svg>
+        <div class="skill-value">0%</div>
+        <span>Database</span>
+        <small>SQL Basic, Access, SAP</small>
+      </div>
+
+      <div class="skill-item" data-skill="85">
+        <svg viewBox="0 0 120 120">
+          <circle cx="60" cy="60" r="52" class="skill-bg"></circle>
+          <circle cx="60" cy="60" r="52" class="skill-progress"></circle>
+        </svg>
+        <div class="skill-value">0%</div>
+        <span>Problem Solving</span>
+        <small>Analitis, Proaktif</small>
+      </div>
+    </div>
+  </div>
+
+  <!-- Soft Skills -->
+  <div class="soft-skills">
+    <h3 style="margin-bottom: 20px;">Soft Skills</h3>
+    <div class="soft-skills-grid">
+      <div class="soft-skill-item">
+        <i class="fas fa-users"></i>
+        <span>Teamwork</span>
+      </div>
+      <div class="soft-skill-item">
+        <i class="fas fa-lightbulb"></i>
+        <span>Problem Solving</span>
+      </div>
+      <div class="soft-skill-item">
+        <i class="fas fa-clock"></i>
+        <span>Time Management</span>
+      </div>
+      <div class="soft-skill-item">
+        <i class="fas fa-handshake"></i>
+        <span>Komunikasi</span>
+      </div>
+      <div class="soft-skill-item">
+        <i class="fas fa-tasks"></i>
+        <span>Attention to Detail</span>
+      </div>
+      <div class="soft-skill-item">
+        <i class="fas fa-rocket"></i>
+        <span>Adaptabilitas</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= TOOLS ================= -->
+<section id="tools" class="section reveal">
+  <h2><i class="fas fa-tools"></i> Tools & Software</h2>
+
+  <div class="tools-grid">
+    <div class="tool-card">
+      <div class="tool-icon">
+        <i class="fas fa-table"></i>
+      </div>
+      <h4>Microsoft Excel</h4>
+      <div class="tool-skills">
+        <span class="skill-tag">VLOOKUP</span>
+        <span class="skill-tag">SUMIF</span>
+        <span class="skill-tag">Pivot Table</span>
+        <span class="skill-tag">Dashboard</span>
+        <span class="skill-tag">Macro VBA</span>
+      </div>
+      <p class="skill-level">Level: Advanced</p>
     </div>
 
+    <div class="tool-card">
+      <div class="tool-icon">
+        <i class="fas fa-sheet"></i>
+      </div>
+      <h4>Google Sheets</h4>
+      <div class="tool-skills">
+        <span class="skill-tag">Formula</span>
+        <span class="skill-tag">Query</span>
+        <span class="skill-tag">App Script</span>
+      </div>
+      <p class="skill-level">Level: Intermediate</p>
+    </div>
+
+    <div class="tool-card">
+      <div class="tool-icon">
+        <i class="fas fa-database"></i>
+      </div>
+      <h4>Database</h4>
+      <div class="tool-skills">
+        <span class="skill-tag">SQL Basic</span>
+        <span class="skill-tag">Access</span>
+        <span class="skill-tag">MySQL</span>
+      </div>
+      <p class="skill-level">Level: Intermediate</p>
+    </div>
+
+    <div class="tool-card">
+      <div class="tool-icon">
+        <i class="fas fa-file-word"></i>
+      </div>
+      <h4>Office Suite</h4>
+      <div class="tool-skills">
+        <span class="skill-tag">Word</span>
+        <span class="skill-tag">PowerPoint</span>
+        <span class="skill-tag">Outlook</span>
+      </div>
+      <p class="skill-level">Level: Advanced</p>
+    </div>
+
+    <div class="tool-card">
+      <div class="tool-icon">
+        <i class="fas fa-chart-bar"></i>
+      </div>
+      <h4>Data Visualization</h4>
+      <div class="tool-skills">
+        <span class="skill-tag">Power BI</span>
+        <span class="skill-tag">Tableau</span>
+        <span class="skill-tag">Canva</span>
+      </div>
+      <p class="skill-level">Level: Beginner - Intermediate</p>
+    </div>
+
+    <div class="tool-card">
+      <div class="tool-icon">
+        <i class="fas fa-code"></i>
+      </div>
+      <h4>Lainnya</h4>
+      <div class="tool-skills">
+        <span class="skill-tag">SAP</span>
+        <span class="skill-tag">Email Marketing</span>
+        <span class="skill-tag">CMS</span>
+      </div>
+      <p class="skill-level">Level: Basic</p>
+    </div>
+  </div>
+</section>
+
+<!-- ================= ACHIEVEMENTS ================= -->
+<section id="achievements" class="section reveal">
+  <h2><i class="fas fa-trophy"></i> Pencapaian & Prestasi</h2>
+
+  <div class="achievements-grid">
+    <div class="achievement-card">
+      <div class="achievement-icon">
+        <i class="fas fa-check-double"></i>
+      </div>
+      <h3>99% Akurasi Data</h3>
+      <p>Konsistensi akurasi laporan selama 24+ bulan berturut-turut</p>
+      <span class="achievement-meta">2024</span>
+    </div>
+
+    <div class="achievement-card">
+      <div class="achievement-icon">
+        <i class="fas fa-clock"></i>
+      </div>
+      <h3>On-Time Reporting</h3>
+      <p>100% laporan selesai tepat waktu setiap bulannya</p>
+      <span class="achievement-meta">2023 - 2025</span>
+    </div>
+
+    <div class="achievement-card">
+      <div class="achievement-icon">
+        <i class="fas fa-chart-line"></i>
+      </div>
+      <h3>Efisiensi 40%</h3>
+      <p>Kurangi waktu pembuatan laporan dengan automation Excel</p>
+      <span class="achievement-meta">2024</span>
+    </div>
+
+    <div class="achievement-card">
+      <div class="achievement-icon">
+        <i class="fas fa-award"></i>
+      </div>
+      <h3>Best Admin Staff</h3>
+      <p>Penghargaan sebagai Admin Staff terbaik dari perusahaan</p>
+      <span class="achievement-meta">PT Sastra Indah - 2025</span>
+    </div>
+
+    <div class="achievement-card">
+      <div class="achievement-icon">
+        <i class="fas fa-users"></i>
+      </div>
+      <h3>Koordinasi Lintas Tim</h3>
+      <p>Berhasil mengoordinasikan 5+ departemen dalam proyek besar</p>
+      <span class="achievement-meta">2024</span>
+    </div>
+
+    <div class="achievement-card">
+      <div class="achievement-icon">
+        <i class="fas fa-graduation-cap"></i>
+      </div>
+      <h3>Sertifikasi Excel</h3>
+      <p>Lulus sertifikasi Excel Advanced dari institusi terkemuka</p>
+      <span class="achievement-meta">2024</span>
+    </div>
+  </div>
+</section>
+
+<!-- ================= LANGUAGES ================= -->
+<section id="languages" class="section reveal">
+  <h2><i class="fas fa-globe"></i> Bahasa</h2>
+
+  <div class="languages-grid">
+    <div class="language-card">
+      <h4>Bahasa Indonesia</h4>
+      <div class="language-level">
+        <div class="level-bar">
+          <div class="level-fill" style="width: 100%;"></div>
+        </div>
+        <span class="level-text">Native</span>
+      </div>
+      <p>Berbicara sehari-hari, menulis, presentasi</p>
+    </div>
+
+    <div class="language-card">
+      <h4>Bahasa Inggris</h4>
+      <div class="language-level">
+        <div class="level-bar">
+          <div class="level-fill" style="width: 70%;"></div>
+        </div>
+        <span class="level-text">Intermediate</span>
+      </div>
+      <p>Membaca, menulis email, komunikasi bisnis dasar</p>
+    </div>
   </div>
 </section>
 
 <!-- ================= CONTACT ================= -->
 <section id="contact" class="section reveal">
-  <h2>Contact</h2>
-  <div class="contact-links">
-    <a href="mailto:indra@email.com">Email</a>
-    <a href="https://wa.me/628xxxxxxxxxx">WhatsApp</a>
+  <h2><i class="fas fa-envelope"></i> Contact & Sosial Media</h2>
+
+  <div class="contact-container">
+    <div class="contact-info">
+      <div class="contact-item">
+        <i class="fas fa-envelope"></i>
+        <div>
+          <h4>Email</h4>
+          <a href="mailto:indra.wijaya@email.com">indra.wijaya@email.com</a>
+        </div>
+      </div>
+
+      <div class="contact-item">
+        <i class="fas fa-phone"></i>
+        <div>
+          <h4>WhatsApp / Phone</h4>
+          <a href="tel:+6281234567890">+62 812-3456-7890</a>
+        </div>
+      </div>
+
+      <div class="contact-item">
+        <i class="fas fa-map-marker-alt"></i>
+        <div>
+          <h4>Lokasi</h4>
+          <p>Jakarta, Indonesia</p>
+        </div>
+      </div>
+
+      <div class="contact-item">
+        <i class="fas fa-briefcase"></i>
+        <div>
+          <h4>LinkedIn</h4>
+          <a href="https://linkedin.com/in/indra-wijaya" target="_blank">linkedin.com/in/indra-wijaya</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="contact-form">
+      <h3>Kirim Pesan</h3>
+      <form id="contactForm">
+        <div class="form-group">
+          <input type="text" placeholder="Nama Lengkap" required>
+        </div>
+        <div class="form-group">
+          <input type="email" placeholder="Email" required>
+        </div>
+        <div class="form-group">
+          <input type="text" placeholder="Subjek">
+        </div>
+        <div class="form-group">
+          <textarea placeholder="Pesan" rows="5" required></textarea>
+        </div>
+        <button type="submit" class="btn primary">
+          <i class="fas fa-paper-plane"></i> Kirim Pesan
+        </button>
+      </form>
+      <div class="form-message" id="formMessage"></div>
+    </div>
+
+    <div class="social-links">
+      <h3>Follow Me</h3>
+      <div class="social-grid">
+        <a href="https://linkedin.com/in/indra-wijaya" target="_blank" class="social-btn linkedin" title="LinkedIn">
+          <i class="fab fa-linkedin"></i>
+        </a>
+        <a href="https://wa.me/628xxxxxxxxxx" target="_blank" class="social-btn whatsapp" title="WhatsApp">
+          <i class="fab fa-whatsapp"></i>
+        </a>
+        <a href="mailto:indra@email.com" class="social-btn email" title="Email">
+          <i class="fas fa-envelope"></i>
+        </a>
+        <a href="https://instagram.com" target="_blank" class="social-btn instagram" title="Instagram">
+          <i class="fab fa-instagram"></i>
+        </a>
+      </div>
+    </div>
   </div>
 </section>
 
 <!-- ================= FOOTER ================= -->
 <footer class="footer">
-  © 2026 Indra Wijaya
+  <div class="footer-content">
+    <p>&copy; 2025 Indra Wijaya. All rights reserved.</p>
+    <p>Made with <i class="fas fa-heart"></i> | Responsive & Accessible</p>
+  </div>
+  <div class="scroll-top" id="scrollTop">
+    <i class="fas fa-arrow-up"></i>
+  </div>
 </footer>
 
 <!-- ================= MODALS ================= -->
-<div class="modal" id="modal-indo"></div>
-<div class="modal" id="modal-sastra">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h3>Admin Support</h3>
-        <span class="company">PT Sastra Indah Megahmas · Mar 2024 – Mar 2025</span>
-        <button class="modal-close">✕</button>
-      </div>
-  
-      <div class="modal-body">
-        <ul class="stagger">
-          <li>Mengelola administrasi operasional harian perusahaan.</li>
-          <li>Menyusun laporan Excel (VLOOKUP, SUMIF, Pivot Table).</li>
-          <li>Menyediakan data pendukung untuk kebutuhan manajemen.</li>
-          <li>Koordinasi internal antar divisi.</li>
-          <li>Menjaga akurasi dan ketepatan data laporan.</li>
-        </ul>
-  
-        <div class="impact">
-          <div><strong>99%</strong><span>Akurasi Data</span></div>
-          <div><strong>20+</strong><span>Laporan / Bulan</span></div>
-          <div><strong>On-Time</strong><span>Reporting</span></div>
+
+<!-- Modal Indo Kimia -->
+<div class="modal" id="modal-indo">
+  <div class="modal-content">
+    <div class="modal-header">
+      <h3>Admin Sales (Intern)</h3>
+      <span class="company">PT Indo Kimia Jaya</span>
+      <span class="period">Jul 2025 – Oct 2025</span>
+      <button class="modal-close">&times;</button>
+    </div>
+
+    <div class="modal-body">
+      <h4>Deskripsi Pekerjaan</h4>
+      <p>Sebagai Admin Sales, saya bertanggung jawab mengelola administrasi sales dan klaim operasional. Bekerja dengan berbagai divisi untuk memastikan semua proses berjalan lancar dan tepat waktu.</p>
+
+      <h4 style="margin-top: 16px;">Tanggung Jawab Utama</h4>
+      <ul class="modal-list">
+        <li>Mengelola administrasi sales dan klaim operasional harian</li>
+        <li>Koordinasi lintas divisi (Sales, Finance, Operations, Warehouse)</li>
+        <li>Pengolahan data Excel: data entry, validation, dan reporting</li>
+        <li>Support penyiapan dokumen sales & klaim untuk kebutuhan bisnis</li>
+        <li>Pemeliharaan database dan filing dokumen penting</li>
+        <li>Laporan harian dan monitoring KPI</li>
+      </ul>
+
+      <h4 style="margin-top: 16px;">Pencapaian</h4>
+      <div class="modal-achievements">
+        <div class="achievement">
+          <strong>98%</strong>
+          <span>Akurasi Data</span>
+        </div>
+        <div class="achievement">
+          <strong>50+</strong>
+          <span>Dokumen/Bulan</span>
+        </div>
+        <div class="achievement">
+          <strong>On-Time</strong>
+          <span>Reporting</span>
         </div>
       </div>
+
+      <h4 style="margin-top: 16px;">Skill yang Dikembangkan</h4>
+      <div class="skill-tags">
+        <span>Excel</span>
+        <span>Data Entry</span>
+        <span>Koordinasi Tim</span>
+        <span>Customer Service</span>
+        <span>Documentation</span>
+      </div>
     </div>
-  </div>  
-<div class="modal" id="modal-trimindo"></div>
+  </div>
+</div>
+
+<!-- Modal Sastra Indah -->
+<div class="modal" id="modal-sastra">
+  <div class="modal-content">
+    <div class="modal-header">
+      <h3>Admin Support</h3>
+      <span class="company">PT Sastra Indah Megahmas</span>
+      <span class="period">Mar 2024 – Mar 2025</span>
+      <button class="modal-close">&times;</button>
+    </div>
+
+    <div class="modal-body">
+      <h4>Deskripsi Pekerjaan</h4>
+      <p>Sebagai Admin Support, saya mengelola administrasi operasional perusahaan secara keseluruhan, termasuk pembuatan laporan rutin dengan menggunakan Excel formula lanjutan dan koordinasi internal antar divisi.</p>
+
+      <h4 style="margin-top: 16px;">Tanggung Jawab Utama</h4>
+      <ul class="modal-list">
+        <li>Mengelola administrasi operasional harian perusahaan</li>
+        <li>Menyusun laporan Excel dengan formula lanjutan (VLOOKUP, SUMIF, Pivot Table)</li>
+        <li>Menyediakan data pendukung untuk keputusan manajemen</li>
+        <li>Koordinasi internal antar divisi (Sales, Operations, Keuangan, HR)</li>
+        <li>Menjaga akurasi dan ketepatan waktu laporan</li>
+        <li>Dokumentasi proses dan SOP perusahaan</li>
+      </ul>
+
+      <h4 style="margin-top: 16px;">Pencapaian</h4>
+      <div class="modal-achievements">
+        <div class="achievement">
+          <strong>99%</strong>
+          <span>Akurasi Data</span>
+        </div>
+        <div class="achievement">
+          <strong>20+</strong>
+          <span>Laporan/Bulan</span>
+        </div>
+        <div class="achievement">
+          <strong>100%</strong>
+          <span>On-Time</span>
+        </div>
+      </div>
+
+      <h4 style="margin-top: 16px;">Skill yang Dikembangkan</h4>
+      <div class="skill-tags">
+        <span>Excel Advanced</span>
+        <span>Data Analysis</span>
+        <span>Reporting</span>
+        <span>Koordinasi Tim</span>
+        <span>Problem Solving</span>
+        <span>Time Management</span>
+      </div>
+
+      <h4 style="margin-top: 16px;">Award</h4>
+      <p><strong>Best Admin Staff 2025</strong> - Penghargaan dari manajemen atas dedikasi dan kerja keras</p>
+    </div>
+  </div>
+</div>
+
+<!-- Modal Trimindo -->
+<div class="modal" id="modal-trimindo">
+  <div class="modal-content">
+    <div class="modal-header">
+      <h3>MIS (Management Information System)</h3>
+      <span class="company">PT Trimindo Jaya Mandiri</span>
+      <span class="period">Jan 2024 – Feb 2024</span>
+      <button class="modal-close">&times;</button>
+    </div>
+
+    <div class="modal-body">
+      <h4>Deskripsi Pekerjaan</h4>
+      <p>Sebagai MIS, saya bertanggung jawab atas pengelolaan database internal perusahaan dan pembuatan laporan manajemen yang akurat dan tepat waktu untuk mendukung pengambilan keputusan.</p>
+
+      <h4 style="margin-top: 16px;">Tanggung Jawab Utama</h4>
+      <ul class="modal-list">
+        <li>Pengelolaan database internal perusahaan</li>
+        <li>Pembuatan laporan manajemen berkala (harian, mingguan, bulanan)</li>
+        <li>Maintenance data sistem dan updating informasi</li>
+        <li>Dokumentasi proses dan sistem yang berjalan</li>
+        <li>Support user dalam penggunaan sistem</li>
+      </ul>
+
+      <h4 style="margin-top: 16px;">Tools yang Digunakan</h4>
+      <div class="skill-tags">
+        <span>Excel</span>
+        <span>Access Database</span>
+        <span>SQL</span>
+        <span>Word</span>
+        <span>Power Point</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Success Modal -->
+<div class="modal" id="successModal">
+  <div class="modal-content small-modal">
+    <div class="modal-header">
+      <h3><i class="fas fa-check-circle" style="color: #22c55e;"></i> Pesan Terkirim!</h3>
+      <button class="modal-close">&times;</button>
+    </div>
+    <div class="modal-body">
+      <p>Terima kasih telah menghubungi saya. Saya akan segera merespon pesan Anda.</p>
+    </div>
+  </div>
+</div>
 
 <script src="script.js"></script>
 </body>
