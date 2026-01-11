@@ -1,0 +1,22 @@
+name: Deploy CV Web to InfinityFree
+
+on:
+  push:
+    branches:
+      - main  # deploy otomatis setiap push ke main
+
+jobs:
+  ftp-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v3
+
+      - name: FTP Deploy
+        uses: SamKirkland/FTP-Deploy-Action@4.1.0
+        with:
+          server: ${{ secrets.FTP_HOST }}
+          username: ${{ secrets.FTP_USERNAME }}
+          password: ${{ secrets.FTP_PASSWORD }}
+          local-dir: ./        # folder repo GitHub
+          server-dir: /htdocs  # root folder InfinityFree
